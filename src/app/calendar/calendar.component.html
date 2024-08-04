@@ -1,0 +1,10 @@
+<app-nav-bar></app-nav-bar>
+
+<div class="calendar-container">
+  <button mat-raised-button color="primary"(click)="openCreateDialog()">Create +</button>
+
+  <div class="calendar-panes">
+    <app-month-view class="month-view" (dateSelected)="onDateSelected($event)"></app-month-view>
+    <app-time-wise-view class="time-view" [selectedDate]="selectedDate"></app-time-wise-view>
+  </div>
+</div>

@@ -1,0 +1,34 @@
+<h1 mat-dialog-title>Create Appointment</h1>
+<mat-dialog-content>
+  <form [formGroup]="appointmentForm">
+    <mat-form-field appearance="fill">
+      <mat-label>Date</mat-label>
+      <input matInput [matDatepicker]="picker" formControlName="date" readonly (click)="openDatePicker(picker)">
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Start Time</mat-label>
+      <mat-select formControlName="startTime">
+        <mat-option *ngFor="let time of timeSlots" [value]="time">{{ time }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>End Time</mat-label>
+      <mat-select formControlName="endTime">
+        <mat-option *ngFor="let time of timeSlots" [value]="time">{{ time }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Description</mat-label>
+      <input matInput formControlName="description">
+    </mat-form-field>
+  </form>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Cancel</button>
+  <button mat-button [disabled]="!appointmentForm.valid" (click)="onSubmit()">Create</button>
+</mat-dialog-actions>

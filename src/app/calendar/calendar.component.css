@@ -1,0 +1,17 @@
+.calendar-container {
+    padding: 16px;
+  }
+  
+  .calendar-panes {
+    display: flex;
+    margin-top: 16px;
+  }
+  
+  .month-view {
+    flex: 1;
+    margin-right: 16px;
+  }
+  
+  .time-view {
+    flex: 2;
+  }
